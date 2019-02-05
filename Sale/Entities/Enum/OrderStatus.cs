@@ -1,6 +1,8 @@
 ﻿using System;
 namespace Sale.Entities.Enum
 {
+    //Created the Order status
+
     public enum OrderStatus : int
     {
         Pending_Payment = 0,

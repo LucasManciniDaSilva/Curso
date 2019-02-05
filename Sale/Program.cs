@@ -10,6 +10,8 @@ namespace Sale
     {
         static void Main(string[] args)
         {
+
+            //Implemented the interaction with the user
             Console.WriteLine("Enter client data: ");
             Console.Write("Name:  ");
             string name = Console.ReadLine();
@@ -21,12 +23,15 @@ namespace Sale
             Console.Write("Status: ");
             OrderStatus status = Enum.Parse<OrderStatus>(Console.ReadLine());
 
+            //instantiated Classes
             Client client = new Client(name, mail, birthDate);
             Order order = new Order(DateTime.Now, status, client);
 
+            //Another interaction with the user
             Console.WriteLine("How many itens you want to order?: ");
             int n = int.Parse(Console.ReadLine());
 
+            //Implemented a "for" because of the interaction "HOW MANY ITENS...."
             for(int i = 1; i <= n; i++)
             {
                 Console.WriteLine($" Enter the {i} item data: ");
@@ -35,15 +40,18 @@ namespace Sale
                 Console.Write("Product Price:  "  );
                 double price = double.Parse(Console.ReadLine());
 
+                //instantiated the class Product
                 Product productItem = new Product(productName, price);
 
                 Console.Write("Quantity: ");
                 int quantity = int.Parse(Console.ReadLine());
-
+                //instantiated the class OrderItem
                 OrderItem orderItem = new OrderItem(quantity, price, productItem);
 
+                //Method to add Itens
                 order.AddItem(orderItem);
                 }
+
 
             Console.WriteLine();
             Console.WriteLine("Order summary" );
